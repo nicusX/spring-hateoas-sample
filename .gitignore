@@ -1,0 +1,32 @@
+## Eclipse
+.classpath
+.project
+.settings
+.springBeans
+bin/
+tmp/
+*.tmp
+*.swp
+*.bak
+*~.nib
+*.log
+*.launch
+local.properties
+
+## IntelliJ
+*.iml
+*.ipr
+*.iws
+.idea/
+out/
+target/
+
+# External tool builders
+.externalToolBuilders/
+
+
+## Mac
+.DS_Store
+
+## Win
+Desktop.ini
