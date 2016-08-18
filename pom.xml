@@ -29,7 +29,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-hateoas</artifactId>
         </dependency>
-        <!-- 
+        <!--
             Note that the current version of Spring Boot HATEOAS Starter is using a rather old version of Spring HATEOAS (0.16.0-RELEASE).
             Unfortunately the newest stable Spring HATEOAS version has some dependency issue with Spring Boot 1.2.6.
         -->

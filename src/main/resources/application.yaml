@@ -1,0 +1,10 @@
+server:
+    port: 8080
+    address: 0.0.0.0
+
+
+extdb:
+    datasource:
+        url: jdbc:h2:tcp://localhost:1521/hateoas-sample
+        username: sa
+        driver-class: org.h2.Driver

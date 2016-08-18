@@ -21,7 +21,21 @@ The port number can be changed by editing the port property in `src/main/resourc
   
 ### Load sample data
 By default, the application database starts empty. To have some sample data loaded at start specify the Spring bean profile "demohateoas.loadsampledata"
-    `mvn spring-boot:run -Dspring.profiles.active=sampledata`
+```
+$ mvn spring-boot:run -Dspring.profiles.active=sampledata`
+```
+
+### Run with external H2 database
+
+1. Download and install (unzip) H2 http://www.h2database.com/html/download.html
+2. Start H2 in server mode (replace `<h2-dir>` with H2 installation directory, and `<data-dir>` with your preferred data directory (might be `/tmp`)
+```
+$ java -cp <h2-dir>/bin/h2*.jar org.h2.tools.Server -web -webAllowOthers -webPort 8081 -tcp -tcpAllowOthers -tcpPort 1521 -baseDir <data-dir>
+```
+3. Start the application with the `extdb` Spring Profile and possibly also `sampledata` profile to add sample data
+```
+$ mvn spring-boot:run -Dspring.profiles.active=extdb,sampledata`
+```
 
 ## License
 
