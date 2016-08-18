@@ -27,12 +27,14 @@ $ mvn spring-boot:run -Dspring.profiles.active=sampledata`
 
 ### Run with external H2 database
 
-1. Download and install (unzip) H2 http://www.h2database.com/html/download.html
-2. Start H2 in server mode (replace `<h2-dir>` with H2 installation directory, and `<data-dir>` with your preferred data directory (might be `/tmp`)
+You may run the application using an external H2 running in server mode on the same machine
+
+- Download and install (unzip) H2 http://www.h2database.com/html/download.html
+- Start H2 in server mode (replace `<h2-dir>` with H2 installation directory, and `<data-dir>` with your preferred data directory (enabling H2 web console is not required)
 ```
-$ java -cp <h2-dir>/bin/h2*.jar org.h2.tools.Server -web -webAllowOthers -webPort 8081 -tcp -tcpAllowOthers -tcpPort 1521 -baseDir <data-dir>
+$ java -cp <h2-dir>/bin/h2*.jar org.h2.tools.Server -web -webPort 8081 -tcp -tcpAllowOthers -tcpPort 1521 -baseDir <data-dir>
 ```
-3. Start the application with the `extdb` Spring Profile and possibly also `sampledata` profile to add sample data
+- Start the application with the `extdb` Spring Profile and possibly also `sampledata` profile to add sample data
 ```
 $ mvn spring-boot:run -Dspring.profiles.active=extdb,sampledata`
 ```
