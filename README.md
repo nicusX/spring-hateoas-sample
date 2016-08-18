@@ -13,13 +13,16 @@ $ mvn spring-boot:run
   
 Once started you can access the APIs on port 8080, e.g.
 ```
-$ http://localhost:8080/books
+$ curl http://localhost:8080/books
 ``` 
   
-The port number can be changed by editing the port property in `src/main/resources/application.yml`  
+The port number can be changed by editing the port property in `src/main/resources/application.yml`  or setting the `server.port` property, e.g. `server.port=80`
+
   
 ### Load sample data
-By default, the application database starts empty. To have some sample data loaded at start set the env property `loadsampledata=true` on launching the application
+
+By default, the application database starts empty. 
+To load sample data on start, launch the application with `-Dloadsampledata=true` 
 ```
 $ mvn spring-boot:run -Dloadsampledata=true
 ```
@@ -33,10 +36,19 @@ You may run the application using an external H2 running in server mode on the s
 ```
 $ java -cp <h2-dir>/bin/h2*.jar org.h2.tools.Server -web -webPort 8081 -tcp -tcpAllowOthers -tcpPort 1521 -baseDir <data-dir>
 ```
-- Start the application setting `externaldb` env variable
+- Start the application with `-Dexternaldb=true`
 ```
 $ mvn spring-boot:run -Dexternaldb=true -Dloadsampledata=true
 ```
+
+### Running the executable JAR
+
+`mvn package` creates an executable jar that may be launched directly
+
+```
+$ java -Dloadsampledata=true -jar target/spring-hateoas-sample-0.0.1-SNAPSHOT.jar
+```
+
 
 ## License
 
