@@ -3,26 +3,25 @@
 A working Spring Boot + Spring HATEOAS application implementing a hypermedia API supporting HAL <http://stateless.co/hal_specification.html>
 
 Look at the related blog post: [Implementing HAL hypermedia REST API using Spring HATEOAS](https://opencredo.com/hal-hypermedia-api-spring-hateoas/)
-
-## Installation
-* Ensure that Java 8 and Maven 3.2 are installed
-* Clone the repo"
-    `git clone https://nicus@bitbucket.org/nicus/spring-hateoas-sample.git`
     
 ## Usage
 ### Running the Spring Boot app
 Navigate to the directory into which you cloned the repo and execute this:
-  `mvn spring-boot:run`    
+```
+$ mvn spring-boot:run
+```
   
 Once started you can access the APIs on port 8080, e.g.
-  `http://localhost:8080/books`  
+```
+$ http://localhost:8080/books
+``` 
   
 The port number can be changed by editing the port property in `src/main/resources/application.yml`  
   
 ### Load sample data
-By default, the application database starts empty. To have some sample data loaded at start specify the Spring bean profile "demohateoas.loadsampledata"
+By default, the application database starts empty. To have some sample data loaded at start set the env property `loadsampledata=true` on launching the application
 ```
-$ mvn spring-boot:run -Dspring.profiles.active=sampledata`
+$ mvn spring-boot:run -Dloadsampledata=true
 ```
 
 ### Run with external H2 database
@@ -34,9 +33,9 @@ You may run the application using an external H2 running in server mode on the s
 ```
 $ java -cp <h2-dir>/bin/h2*.jar org.h2.tools.Server -web -webPort 8081 -tcp -tcpAllowOthers -tcpPort 1521 -baseDir <data-dir>
 ```
-- Start the application with the `extdb` Spring Profile and possibly also `sampledata` profile to add sample data
+- Start the application setting `externaldb` env variable
 ```
-$ mvn spring-boot:run -Dspring.profiles.active=extdb,sampledata`
+$ mvn spring-boot:run -Dexternaldb=true -Dloadsampledata=true
 ```
 
 ## License

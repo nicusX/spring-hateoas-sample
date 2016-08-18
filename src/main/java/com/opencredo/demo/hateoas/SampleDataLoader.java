@@ -1,24 +1,22 @@
 package com.opencredo.demo.hateoas;
 
-import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.stereotype.Component;
-
 import com.opencredo.demo.hateoas.domain.Author;
 import com.opencredo.demo.hateoas.domain.Book;
 import com.opencredo.demo.hateoas.domain.Publisher;
 import com.opencredo.demo.hateoas.domain.persistence.AuthorRepository;
 import com.opencredo.demo.hateoas.domain.persistence.BookRepository;
 import com.opencredo.demo.hateoas.domain.persistence.PublisherRepository;
-
-import static java.util.Arrays.asList;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.ApplicationListener;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.stereotype.Component;
 
-@Profile("sampledata")
+import static java.util.Arrays.asList;
+
+@ConditionalOnProperty("loadsampledata")
 @Component
 public class SampleDataLoader implements ApplicationListener<ContextRefreshedEvent>  {
    private final static Logger LOG = LoggerFactory.getLogger(SampleDataLoader.class);
