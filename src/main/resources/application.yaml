@@ -2,7 +2,9 @@ server:
     port: 8080
     address: 0.0.0.0
 
+spring.jpa.hibernate.ddl-auto: update
 
+# Standalone H2 Server runnung on localhost
 extdb:
     datasource:
         url: jdbc:h2:tcp://localhost:1521/hateoas-sample
